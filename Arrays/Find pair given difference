@@ -1,0 +1,22 @@
+https://practice.geeksforgeeks.org/problems/find-pair-given-difference1559/0
+
+
+class Solution
+{
+    public boolean findPair(int arr[], int size, int n)
+    {
+        int left = 0;
+        int right = 1;
+        Arrays.sort(arr);
+        while(left <= right && right < size){
+            int diff = arr[right] - arr[left];
+            if(n==0){
+                if(arr[left] == arr[left +1]) return true;
+            }
+            if(diff == n && left != right) return true;
+            else if(diff < n) right++;
+            else left++;
+        }
+        return false;
+    }
+}
